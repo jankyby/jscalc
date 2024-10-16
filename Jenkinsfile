@@ -20,7 +20,7 @@ pipeline {
         stage('Run') {
             steps {
                 echo "Deploing ..."
-                sh 'docker run -d --name jcalc -p 80:80 jcalc:0.$BUILD_NUMBER'                                
+                sh 'docker stop jcalc && docker rm jcalc && docker run -d --name jcalc -p 80:80 jcalc:0.$BUILD_NUMBER'                                
             }
         }
     }
